@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+    script(src="/javascripts/tweets/tweet.js")
+    div(class="d-flex flex-row content mx-auto")
+        include ../includes/profile
+        div(class="d-flex flex-column flex-fill" id="tweet-list-container")
+            include tweet-list

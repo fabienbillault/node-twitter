@@ -1,0 +1,31 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.img-fluid {
+  max-height: 200px;
+  max-width: 200px;
+  cursor: pointer;
+}
+.content {
+  max-width: 1000px;
+}
+.profile-container {
+  width: 30%;
+  max-width: 300px;
+  color: #657786;
+  border: 1px solid #ddd;
+}
+.btn-tweet {
+  border-radius: 30px;
+}
+.tweet-element {
+  border: 1px solid #ddd;
+}
+.tweet-element a {
+  color: #657786;
+  text-decoration: none;
+}

@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
+const env = require(`../environment/${process.env.NODE_ENV}.js`);
 
 mongoose
-  .connect(
-    'mongodb+srv://admin:250789@cluster0-2btph.gcp.mongodb.net/twitter?retryWrites=true&w=majority',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    }
-  )
+  .connect(env.dbUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+  })
   .then(() => {
     console.log('Connexion DB Ok');
   })

@@ -1,4 +1,4 @@
-const { app } = require('../app');
+const app = require('../app');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const { findUserPerId, findUserPerEmail } = require('../queries/users.queries');

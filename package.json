@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "SET NODE_ENV=developement && nodemon app.js",
-    "start:prod": "SET NODE_ENV=production && nodemon app.js",
+    "start": "SET NODE_ENV=development&& nodemon ./bin/www",
+    "start:prod": "SET NODE_ENV=production&& nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -22,6 +22,7 @@
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "pm2": "^4.2.3",
     "pug": "^2.0.4"
   }
 }

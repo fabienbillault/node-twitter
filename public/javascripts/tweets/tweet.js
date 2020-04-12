@@ -1,21 +1,21 @@
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', function() {
   bindTweet();
 });
 
 function bindTweet() {
   const tweetContainer = document.querySelector('#tweet-list-container');
-  const elements = document.querySelectorAll('.btn-danger');
+  const elements = document.querySelectorAll('.fa-minus-circle');
 
-  elements.forEach((el) => {
-    el.addEventListener('click', function (e) {
+  elements.forEach(el => {
+    el.addEventListener('click', function(e) {
       const tweetId = e.target.getAttribute('data-id');
       axios
         .delete(`/tweets/${tweetId}`)
-        .then((res) => {
+        .then(res => {
           tweetContainer.innerHTML = res.data;
           bindTweet();
         })
-        .catch((e) => {
+        .catch(e => {
           console.error(e);
         });
     });

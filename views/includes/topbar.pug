@@ -1,17 +1,22 @@
+script(src="/javascripts/search-bar.js")
 nav(class="navbar navbar-expand-lg navbar-light bg-white mb-4")
     a(class="navbar-brand" href="/tweets")
         img(height="30" src="/images/twitter.webp")
     button(class="navbar-toggler")
         span(class="navbar-toggler-icon")
     div(class="collapse navbar-collapse")
-        ul(class="navbar-nav ml-auto")
             if isAuthenticated
-                li(class="nav-item active")
-                    a(class="btn btn-primary btn-tweet mr-3" href="/tweets/new") Tweet
-                li(class="nav-item active")
-                    a(class="nav-link" href="/auth/signout") Déconnexion
+                form(method="POST" action="" class="flex-fill mx-5")
+                    input(type="text" placeholder="Rechercher un utilisateur" id="search-input" class="form-control mr-2")
+                    div(id="search-menu-container")
+                ul(class="navbar-nav ml-auto")
+                    li(class="nav-item active")
+                        a(class="btn btn-primary btn-tweet mr-3" href="/tweets/new") Tweet
+                    li(class="nav-item active")
+                        a(class="nav-link" href="/auth/signout") Déconnexion
             else
-                li(class="nav-item")
-                    a(class="nav-link" href="/auth/signin/form") Connexion
-                li(class="nav-item")
-                    a(class="nav-link" href="/users/signup/form") Inscription
+                ul(class="navbar-nav ml-auto")
+                    li(class="nav-item")
+                        a(class="nav-link" href="/auth/signin/form") Connexion
+                    li(class="nav-item")
+                        a(class="nav-link" href="/users/signup/form") Inscription

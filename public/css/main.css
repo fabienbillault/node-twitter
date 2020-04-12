@@ -29,3 +29,41 @@ body {
   color: #657786;
   text-decoration: none;
 }
+.pointer-cursor {
+  cursor: pointer;
+}
+#search-menu-container {
+  position: relative;
+}
+.search-menu {
+  position: absolute;
+  background: white;
+  z-index: 1;
+  top: 4px;
+  left: 0px;
+  width: 300px;
+  min-height: 200px;
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+}
+.search-menu-item {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+  color: #657786;
+}
+.search-menu-item:hover {
+  background: #eee;
+  transition: background 0.2s;
+}
+a.btn-follow {
+  color: #007bff;
+  border-radius: 30px;
+  cursor: pointer;
+}
+a.btn-follow:hover {
+  color: white;
+}
+a.btn-unfollow {
+  border-radius: 30px;
+  cursor: pointer;
+}

@@ -7,11 +7,12 @@ const userSchema = schema({
   avatar: { type: String, default: '/images/default_profile.png' },
   local: {
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    password: { type: String, required: true }
   },
+  following: { type: [schema.Types.ObjectId], ref: 'user' }
 });
 
-userSchema.statics.hashPassword = (password) => {
+userSchema.statics.hashPassword = password => {
   return bcrypt.hash(password, 12);
 };
 

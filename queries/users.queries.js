@@ -1,6 +1,15 @@
 const User = require('../database/models/user.model');
 
-exports.createUser = async (user) => {
+exports.searchUsersPerUsername = search => {
+  const safeSearch = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').trim();
+  console.log({ search, safeSearch });
+
+  const regExp = `^${safeSearch}`;
+  const reg = new RegExp(regExp, 'i');
+  return User.find({ username: { $regex: reg } }).exec();
+};
+
+exports.createUser = async user => {
   try {
     const hashedPaswword = await User.hashPassword(user.password);
 
@@ -8,8 +17,8 @@ exports.createUser = async (user) => {
       username: user.username,
       local: {
         email: user.email,
-        password: hashedPaswword,
-      },
+        password: hashedPaswword
+      }
     });
 
     return newUser.save();
@@ -18,10 +27,22 @@ exports.createUser = async (user) => {
   }
 };
 
-exports.findUserPerId = (userId) => {
+exports.findUserPerId = userId => {
   return User.findById(userId).exec();
 };
 
-exports.findUserPerEmail = (email) => {
+exports.findUserPerEmail = email => {
   return User.findOne({ 'local.email': email }).exec();
+};
+
+exports.findUserPerUsername = username => {
+  return User.findOne({ username }).exec();
+};
+
+exports.addUserIdToCurrentUserFollowing = (currentUser, userId) => {
+  return User.updateOne({ _id: currentUser._id }, { $push: { following: userId } });
+};
+
+exports.removeUserIdToCurrentUserFollowing = (currentUser, userId) => {
+  return User.updateOne({ _id: currentUser._id }, { $pull: { following: userId } });
 };
